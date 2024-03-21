@@ -1,0 +1,32 @@
+﻿POSSIBLE PROBLEM STATEMENTS
+
+
+Fraud
+* Claims including an element of fraud are significant (25% of all claims).  What is driving this - is it location-based, client-profile based, type of incident?
+
+
+Pricing
+* Are premiums competitive enough to attract new business, and to retain existing clients?
+* Are premiums resulting in profitable business?
+
+
+Cost management
+* Are the deductibles we charging clients, sufficient, and how can we use it as a tool to manage costs?
+* Are there specific car brands that are more expensive to repair?
+* Are loyal clients more profitable?
+
+
+Risk management
+* Are there certain client profiles that we don’t want to insure?
+* Are there certain areas (towns/states) that we don’t want to insure?
+* Are there certain family members that we don’t want to insure?
+* Are there certain hours of the day that we want to underwrite differently?
+
+
+Customer experience
+* Can we upsell the umbrella product?
+* Are there certain hobbies for which we can design new products?
+* Are there certain occupations for which we can design new products?
+* What family members are using our product, and how can we create products specifically for them?
+* Is there a need for creating a product for a specific car brand?
+* Should we create a product specifically for older or for newer cars if they have different needs?

@@ -6,9 +6,14 @@ import joblib,os
 # Data dependencies
 import pandas as pd
 import numpy as np
-#from resources.transformers import *
 
-# Vectorizer
+# Define a function to clear input values
+def clear_input_values():
+    st.session_state.text_input = ""
+    st.session_state.number_input = None
+    st.session_state.selected_option = None
+
+
 model_file = open("resources/model.pkl","rb")
 model = joblib.load(model_file) # loading your data transformer and model from the pkl file
 
@@ -19,11 +24,13 @@ model = joblib.load(model_file) # loading your data transformer and model from t
 def main():
 	"""Fraudulent Claims Classifier App with Streamlit """
 
+	# Clear input values when the app starts
+	clear_input_values()
 	# Creates a main title and subheader on your page -
 	# these are static across all pages
 	st.title("Fraud Classifier")
 	st.subheader("Classify claims as fraudulent or non-fraudulent")
-
+	
 	# Creating sidebar with selection box -
 	# you can create multiple pages this way
 	options = ["Classify"]
@@ -38,14 +45,15 @@ def main():
 		
 	# Building out the predication page
 	if selection == "Classify":
+		st.session_state.clear()
 		st.info("Classify this claim as potentially fraudulent")
 		# Creating a text box for user input
-		csl = st.selectbox("Combined Single Limit (CSL)",['100/300','250/500','500/1000'])
-		incident_severity = st.selectbox("Incident Severity",['Major Damage', 'Minor Damage', 'Trivial Damage','Total Loss'])
-		incident_state = st.selectbox("Incident State",['SC', 'VA', 'NY', 'OH', 'WV', 'NC', 'PA'])
-		authorities_contacted = st.selectbox("Which authorities were contacted",['Police', 'Fire', 'Other', 'Ambulance', 'None'])
-		property_damage = st.selectbox("Was there any property damage?",['YES', 'NO'])
-		police_report_available = st.selectbox("Is a police report available?",['YES', 'NO'])
+		csl = st.selectbox("Combined Single Limit (CSL)",['','100/300','250/500','500/1000'])
+		incident_severity = st.selectbox("Incident Severity",['', 'Major Damage', 'Minor Damage', 'Trivial Damage','Total Loss'])
+		incident_state = st.selectbox("Incident State",['','SC', 'VA', 'NY', 'OH', 'WV', 'NC', 'PA'])
+		authorities_contacted = st.selectbox("Which authorities were contacted",['','Police', 'Fire', 'Other', 'Ambulance', 'None'])
+		property_damage = st.selectbox("Was there any property damage?",['','YES', 'NO'])
+		police_report_available = st.selectbox("Is a police report available?",['','YES', 'NO'])
 			
 		policy_csl_5001000 = 0
 		if csl == '500/1000':
@@ -83,22 +91,19 @@ def main():
                     authorities_contacted_None, authorities_contacted_Police,
                     incident_state_NY, incident_state_WV,property_damage_NO,
                     police_report_available_YES]).reshape(1, -1)
-
 		if st.button("Classify"):
-            # Transforming user input with vectorizer
-			#vect_text = model.transform(tweet_text)
-			# Load your .pkl file with the model of your choice + make predictions
-			# Try loading in multiple models to give the user a choice
-			#predictor = joblib.load(open(os.path.join("resources/Logistic_regression.pkl"),"rb"))
-			
-			prediction = model.predict(X_unseen)
-			if prediction == 'Y':
-				message = 'There is a high probability that this claim is fraudulent.  Please pay special attention to this during your claim assessment process.'
-				st.error(message, icon="🚨")
+			if '' in [csl, incident_severity, incident_state, authorities_contacted, property_damage, police_report_available]:
+				st.error("Please fill in all fields.", icon="🚨")
+				return
 			else:
-				message = 'This claim is likely not fraudulent.'
-				st.success(message, icon=":material/verified:")
-				st.balloons()
+				prediction = model.predict(X_unseen)
+				if prediction == 'Y':
+					message = 'There is a high probability that this claim is fraudulent.  Please pay special attention to this during your claim assessment process.'
+					st.error(message, icon="🚨")
+				else:
+					message = 'This claim is likely not fraudulent.'
+					st.success(message, icon=":material/verified:")
+					st.balloons()
 			
 			
 

@@ -17,7 +17,7 @@ st.write("Current working directory: ", os.getcwd())
 st.write("Files in current directory: ", os.listdir())
 st.write("Files in resources directory: ", os.listdir('resources'))
 
-model_file = open("resources/model.pkl","rb")
+model_file = open("ml_model/resources/model.pkl","rb")
 model = joblib.load(model_file) # loading your data transformer and model from the pkl file
 
 # The main function where we will build the actual app

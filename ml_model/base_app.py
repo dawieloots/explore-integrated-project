@@ -1,7 +1,7 @@
 
 # Streamlit dependencies
 import streamlit as st
-import joblib
+import joblib, os
 
 # Data dependencies
 import pandas as pd

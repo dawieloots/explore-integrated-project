@@ -17,9 +17,6 @@ def clear_input_values():
 model_file = open("resources/model.pkl","rb")
 model = joblib.load(model_file) # loading your data transformer and model from the pkl file
 
-# Load your raw data
-#raw = pd.read_csv("resources/train.csv")
-
 # The main function where we will build the actual app
 def main():
 	"""Fraudulent Claims Classifier App with Streamlit """
@@ -27,21 +24,19 @@ def main():
 	# Clear input values when the app starts
 	clear_input_values()
 	# Creates a main title and subheader on your page -
-	# these are static across all pages
 	st.title("Fraud Classifier")
 	st.subheader("Classify claims as fraudulent or non-fraudulent")
 	
 	# Creating sidebar with selection box -
 	# you can create multiple pages this way
-	options = ["Classify"]
+	options = ["Classify", "Information"]
 	selection = st.sidebar.selectbox("Choose Option", options)
 
 	# Building out the "Information" page
 	if selection == "Information":
 		st.info("General Information")
 		# You can read a markdown file from supporting resources folder
-		st.markdown("Some information here")
-
+		st.markdown("Please note that this app was built exclusively for the Explore Data Science Course and should not be used commercially.")
 		
 	# Building out the predication page
 	if selection == "Classify":
@@ -91,9 +86,10 @@ def main():
                     authorities_contacted_None, authorities_contacted_Police,
                     incident_state_NY, incident_state_WV,property_damage_NO,
                     police_report_available_YES]).reshape(1, -1)
+		
 		if st.button("Classify"):
 			if '' in [csl, incident_severity, incident_state, authorities_contacted, property_damage, police_report_available]:
-				st.error("Please fill in all fields.", icon="🚨")
+				st.error("Please fill in all fields.", icon=":material/rule:")
 				return
 			else:
 				prediction = model.predict(X_unseen)
@@ -104,8 +100,6 @@ def main():
 					message = 'This claim is likely not fraudulent.'
 					st.success(message, icon=":material/verified:")
 					st.balloons()
-			
-			
 
 # Required to let Streamlit instantiate our web app.  
 if __name__ == '__main__':

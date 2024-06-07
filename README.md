@@ -20,6 +20,8 @@ The following deliverables can be found in this repository:
 3. Cleaned Dataset - https://github.com/dawieloots/explore-integrated-project/blob/9eff9dedbdd64cdcb33ae8acccff5fbc1c4aef7b/data/insurance_claims_data_cleaned.csv
 4. Feature Engineering Notebook - [Feature-Engineering.ipynb](https://github.com/dawieloots/explore-integrated-project/blob/9eff9dedbdd64cdcb33ae8acccff5fbc1c4aef7b/Feature-Engineering.ipynb)
 5. Dataset with advanced features - https://github.com/dawieloots/explore-integrated-project/blob/9eff9dedbdd64cdcb33ae8acccff5fbc1c4aef7b/data/Advanced%20Features%20Claims%20Data.csv
-6. PowerBI dashboard - https://github.com/dawieloots/explore-integrated-project/tree/15e6d9104477dd2ad42c6e14abb547fe7ce935b6/powerbi
-7. Machine Learning model - https://github.com/dawieloots/explore-integrated-project/tree/15e6d9104477dd2ad42c6e14abb547fe7ce935b6/ml_model
-8. Fraudulent Claims Classifier app - https://dawieloots.streamlit.app/
+6. PowerBI dashboard - https://github.com/dawieloots/explore-integrated-project/tree/9230966c67c70448394ba690aa28c653e5360cb7/powerbi
+7. Machine Learning model (Jupyter Notebook) - https://github.com/dawieloots/explore-integrated-project/blob/022014499234419c35217f76d576a3925b46faea/ml_model/resources/integrated-project-ml-model.ipynb
+8. Fraudulent Claims Classifier app:
+   * Python script: https://github.com/dawieloots/explore-integrated-project/blob/022014499234419c35217f76d576a3925b46faea/ml_model/base_app.py
+   * Link to interactive app, hosted on Streamlit - https://dawieloots.streamlit.app/

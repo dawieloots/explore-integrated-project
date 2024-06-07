@@ -20,5 +20,6 @@ The following deliverables can be found in this repository:
 3. Cleaned Dataset - https://github.com/dawieloots/explore-integrated-project/blob/9eff9dedbdd64cdcb33ae8acccff5fbc1c4aef7b/data/insurance_claims_data_cleaned.csv
 4. Feature Engineering Notebook - [Feature-Engineering.ipynb](https://github.com/dawieloots/explore-integrated-project/blob/9eff9dedbdd64cdcb33ae8acccff5fbc1c4aef7b/Feature-Engineering.ipynb)
 5. Dataset with advanced features - https://github.com/dawieloots/explore-integrated-project/blob/9eff9dedbdd64cdcb33ae8acccff5fbc1c4aef7b/data/Advanced%20Features%20Claims%20Data.csv
-6. PowerBI dashboard - 
-8. Machine Learning model and Streamlit app - 
+6. PowerBI dashboard - https://github.com/dawieloots/explore-integrated-project/tree/15e6d9104477dd2ad42c6e14abb547fe7ce935b6/powerbi
+7. Machine Learning model - https://github.com/dawieloots/explore-integrated-project/tree/15e6d9104477dd2ad42c6e14abb547fe7ce935b6/ml_model
+8. Fraudulent Claims Classifier app - https://dawieloots.streamlit.app/

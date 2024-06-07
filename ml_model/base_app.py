@@ -7,37 +7,11 @@ import joblib, os
 import pandas as pd
 import numpy as np
 
-def check_installed(package_name):
-    try:
-        __import__(package_name)
-        return True
-    except ImportError:
-        return False
-
-# Check if sklearn and joblib are installed
-sklearn_installed = check_installed("sklearn")
-joblib_installed = check_installed("joblib")
-
-# Display results in Streamlit
-if sklearn_installed:
-    st.success("scikit-learn (sklearn) is installed.")
-else:
-    st.error("scikit-learn (sklearn) is not installed.")
-
-if joblib_installed:
-    st.success("joblib is installed.")
-else:
-    st.error("joblib is not installed.")
-
 # Define a function to clear input values
 def clear_input_values():
     st.session_state.text_input = ""
     st.session_state.number_input = None
     st.session_state.selected_option = None
-
-st.write("Current working directory: ", os.getcwd())
-st.write("Files in current directory: ", os.listdir())
-#st.write("Files in resources directory: ", os.listdir('resources'))
 
 model_file = open("ml_model/resources/model.pkl","rb")
 model = joblib.load(model_file) # loading your data transformer and model from the pkl file
